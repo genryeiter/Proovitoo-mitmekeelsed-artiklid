@@ -36,16 +36,16 @@ composer require laravel/sail --dev
 php artisan sail:install
 ```
 
-6. Generate app key:
+6. Run application:
 ```bash
-./vendor/bin/sail artisan key:generate
+./vendor/bin/sail up -d
 ```
 
 7. Fill out API_KEY env variable (you can either generate it somewhere or type whatever you want):
 
-8. Run application:
+8. Generate app key:
 ```bash
-./vendor/bin/sail up -d
+./vendor/bin/sail artisan key:generate
 ```
 
 9. Run migrations:
@@ -97,7 +97,7 @@ curl http://localhost:8000/articles/example-path
 ## Testing
 ### Run tests with:
 ```bash
-docker-compose exec app php artisan test
+./vendor/bin/sail artisan test
 ```
 
 ## Database Schema
@@ -114,7 +114,7 @@ docker-compose exec app php artisan test
 
 ### Reset database:
 ```bash
-docker-compose exec app php artisan migrate:fresh --seed
+./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
 ## License
